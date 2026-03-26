@@ -14,10 +14,15 @@ export default function Contact() {
     const form = e.currentTarget
     const data = new FormData(form)
     try {
-      const res = await fetch('https://formspree.io/f/mpqyvqko', {
+      const res = await fetch('http://localhost:5678/webhook/lead-portfolio', {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          phone: data.get('phone'),
+          message: data.get('message'),
+        }),
+        headers: { 'Content-Type': 'application/json' },
       })
       if (res.ok) {
         setSent(true)
@@ -133,19 +138,33 @@ export default function Contact() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-[11px] font-bold tracking-[0.1em] uppercase text-on-surface-variant">
-                    Email
+                  <label htmlFor="phone" className="text-[11px] font-bold tracking-[0.1em] uppercase text-on-surface-variant">
+                    Teléfono
                   </label>
                   <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="tu@email.com"
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+54 9 11 ..."
                     required
-                    autoComplete="email"
+                    autoComplete="tel"
                     className="bg-surface-container border border-outline-variant/30 rounded-2xl px-4 py-3.5 text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 transition-colors text-sm"
                   />
                 </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="email" className="text-[11px] font-bold tracking-[0.1em] uppercase text-on-surface-variant">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="tu@email.com"
+                  required
+                  autoComplete="email"
+                  className="bg-surface-container border border-outline-variant/30 rounded-2xl px-4 py-3.5 text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 transition-colors text-sm"
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="text-[11px] font-bold tracking-[0.1em] uppercase text-on-surface-variant">

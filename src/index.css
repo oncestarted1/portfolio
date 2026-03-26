@@ -4,17 +4,17 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-headline: "Manrope", sans-serif;
 
-  --color-background: #fffcf7;
-  --color-on-surface: #383833;
-  --color-on-surface-variant: #65655e;
-  --color-primary: #5f53c9;
-  --color-primary-container: #897ef7;
-  --color-surface-container: #f6f3ed;
-  --color-surface-container-low: #fcf9f3;
-  --color-surface-container-lowest: #ffffff;
-  --color-outline-variant: #bbb9b2;
-  --color-secondary-container: #e1e0fb;
-  --color-on-secondary-container: #4f5066;
+  --color-background: #0b0b0b;
+  --color-on-surface: #edeae5;
+  --color-on-surface-variant: #7e7b74;
+  --color-primary: #7b6ef6;
+  --color-primary-container: #9d93f8;
+  --color-surface-container: #161614;
+  --color-surface-container-low: #111110;
+  --color-surface-container-lowest: #0e0e0d;
+  --color-outline-variant: #2c2b28;
+  --color-secondary-container: #1c1a38;
+  --color-on-secondary-container: #9d93f8;
 }
 
 @layer base {
@@ -24,10 +24,10 @@
   body {
     @apply bg-background text-on-surface font-sans antialiased overflow-x-hidden;
     background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"),
-      linear-gradient(rgba(95, 83, 201, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(95, 83, 201, 0.045) 1px, transparent 1px);
-    background-size: 300px 300px, 48px 48px, 48px 48px;
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse 90% 45% at 50% -5%, rgba(123, 110, 246, 0.12) 0%, transparent 100%);
+    background-size: 300px 300px, 100% 100%;
+    background-attachment: local, fixed;
   }
 
   #root { width: 100%; }
@@ -41,10 +41,10 @@
   @media (hover: hover) {
     .cursor-glow {
       position: fixed;
-      width: 360px;
-      height: 360px;
+      width: 400px;
+      height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(95, 83, 201, 0.13) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(123, 110, 246, 0.18) 0%, transparent 70%);
       pointer-events: none;
       z-index: 9999;
       transform: translate(-50%, -50%);

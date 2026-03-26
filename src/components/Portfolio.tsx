@@ -42,9 +42,9 @@ const projects: Project[] = [
 ]
 
 const statusStyles: Record<Project['status'], string> = {
-  'Producción': 'bg-green-50 text-green-700 border border-green-200',
-  'Publicado': 'bg-primary/8 text-primary border border-primary/20',
-  'En desarrollo': 'bg-amber-50 text-amber-700 border border-amber-200',
+  'Producción': 'bg-green-500/12 text-green-400 border border-green-500/25',
+  'Publicado': 'bg-primary/12 text-primary-container border border-primary/25',
+  'En desarrollo': 'bg-amber-500/12 text-amber-400 border border-amber-500/25',
 }
 
 export default function Portfolio() {
@@ -131,7 +131,7 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="col-span-12 bg-on-surface rounded-[3rem] p-10 md:p-12 flex flex-col md:flex-row justify-between gap-8 hover:-translate-y-1 transition-transform duration-300"
+          className="col-span-12 bg-surface-container rounded-[3rem] p-10 md:p-12 flex flex-col md:flex-row justify-between gap-8 hover:-translate-y-1 transition-transform duration-300 border border-white/6"
         >
           <div className="flex-1">
             <div className="flex items-start gap-4 mb-6">
@@ -139,17 +139,17 @@ export default function Portfolio() {
                 En desarrollo
               </span>
             </div>
-            <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-primary/70 mb-2">
+            <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-primary mb-2">
               {projects[2].type}
             </p>
-            <h3 className="font-headline text-4xl font-bold text-white mb-4">{projects[2].title}</h3>
-            <p className="text-white/60 leading-relaxed max-w-2xl">{projects[2].desc}</p>
+            <h3 className="font-headline text-4xl font-bold text-on-surface mb-4">{projects[2].title}</h3>
+            <p className="text-on-surface-variant leading-relaxed max-w-2xl">{projects[2].desc}</p>
           </div>
           <div className="flex flex-col justify-between items-end gap-6 flex-shrink-0">
-            <span className="font-headline text-sm tracking-wider text-white/30">03</span>
+            <span className="font-headline text-sm tracking-wider text-on-surface-variant/40">03</span>
             <div className="flex flex-wrap gap-2 justify-end">
               {projects[2].stack.map(t => (
-                <span key={t} className="px-3 py-1 rounded-full bg-white/10 text-white/60 text-[10px] font-bold uppercase tracking-wider border border-white/10">
+                <span key={t} className="px-3 py-1 rounded-full bg-white/5 text-on-surface-variant text-[10px] font-bold uppercase tracking-wider border border-white/8">
                   {t}
                 </span>
               ))}

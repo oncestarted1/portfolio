@@ -25,10 +25,10 @@ export default function Navbar() {
       className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2.5rem)] max-w-5xl"
     >
       <div
-        className={`flex items-center justify-between px-6 py-3 bg-white/70 backdrop-blur-xl rounded-full border border-white/40 transition-shadow duration-300 ${
+        className={`flex items-center justify-between px-6 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/8 transition-shadow duration-300 ${
           scrolled
-            ? 'shadow-[0_12px_40px_rgba(56,56,51,0.11)]'
-            : 'shadow-[0_8px_32px_rgba(56,56,51,0.06)]'
+            ? 'shadow-[0_12px_40px_rgba(0,0,0,0.4)]'
+            : 'shadow-[0_8px_32px_rgba(0,0,0,0.2)]'
         }`}
       >
         <motion.a
@@ -99,7 +99,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden mt-2 py-2 bg-white/95 backdrop-blur-xl border border-outline-variant/20 rounded-2xl shadow-xl"
+          className="md:hidden mt-2 py-2 bg-[#141414]/95 backdrop-blur-xl border border-white/8 rounded-2xl shadow-xl"
         >
           {links.map(l => (
             <a

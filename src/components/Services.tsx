@@ -155,7 +155,7 @@ export default function Services() {
                 key={i}
                 className={`flex items-center gap-3 p-3 rounded-2xl bg-surface-container-lowest shadow-sm ${item.offset ? 'translate-x-4' : ''}`}
               >
-                <div className="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-4 h-4 text-on-surface-variant" />
                 </div>
                 <span className="font-bold text-sm text-on-surface">{item.label}</span>
@@ -203,22 +203,22 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="col-span-12 bg-on-surface rounded-[3rem] p-10 md:p-12 flex flex-col md:flex-row justify-between gap-8 items-center"
+          className="col-span-12 bg-surface-container rounded-[3rem] p-10 md:p-12 flex flex-col md:flex-row justify-between gap-8 items-center border border-white/6"
         >
           <div className="flex-1">
-            <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
-              <ShoppingBag className="w-6 h-6 text-white/80" />
+            <div className="w-12 h-12 rounded-2xl bg-primary/15 flex items-center justify-center mb-6">
+              <ShoppingBag className="w-6 h-6 text-primary" />
             </div>
-            <p className="text-[10px] font-bold tracking-widest uppercase text-white/40 mb-2">03</p>
-            <h3 className="font-headline text-4xl font-bold mb-4 text-white">Tiendas Online</h3>
-            <p className="text-white/60 leading-relaxed max-w-lg">
+            <p className="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mb-2">03</p>
+            <h3 className="font-headline text-4xl font-bold mb-4 text-on-surface">Tiendas Online</h3>
+            <p className="text-on-surface-variant leading-relaxed max-w-lg">
               Catálogos y e-commerce para vender por internet. Integración con Mercado Pago y WhatsApp para
               que tu tienda venda las 24hs.
             </p>
           </div>
           <div className="flex gap-3 flex-wrap md:flex-col">
             {['React', 'E-commerce', 'MercadoPago'].map(t => (
-              <span key={t} className="px-4 py-2 rounded-full bg-white/10 text-white/70 text-[10px] font-bold uppercase tracking-wider border border-white/10">
+              <span key={t} className="px-4 py-2 rounded-full bg-white/5 text-on-surface-variant text-[10px] font-bold uppercase tracking-wider border border-white/8">
                 {t}
               </span>
             ))}
