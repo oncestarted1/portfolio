@@ -1,3 +1,5 @@
+const WA_NUMBER = import.meta.env.VITE_WA_NUMBER as string
+
 export default function Footer() {
   const year = new Date().getFullYear()
 
@@ -43,7 +45,7 @@ export default function Footer() {
               Contacto
             </p>
             <a
-              href="https://wa.me/5491176460917"
+              href={`https://wa.me/${WA_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold text-on-surface-variant/70 hover:text-primary transition-colors duration-200"

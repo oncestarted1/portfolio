@@ -1,20 +1,23 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
-import { MessageCircle, Send } from 'lucide-react'
+import { MessageCircle, Send, AlertCircle } from 'lucide-react'
 
-const WA_NUMBER = '5491176460917'
+const WA_NUMBER = import.meta.env.VITE_WA_NUMBER as string
+const WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL as string
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setLoading(true)
+    setError(false)
     const form = e.currentTarget
     const data = new FormData(form)
     try {
-      const res = await fetch('http://localhost:5678/webhook/lead-portfolio', {
+      const res = await fetch(WEBHOOK_URL, {
         method: 'POST',
         body: JSON.stringify({
           name: data.get('name'),
@@ -27,9 +30,11 @@ export default function Contact() {
       if (res.ok) {
         setSent(true)
         form.reset()
+      } else {
+        setError(true)
       }
     } catch {
-      // silently fail — user can try WhatsApp
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -179,6 +184,15 @@ export default function Contact() {
                   className="bg-surface-container border border-outline-variant/30 rounded-2xl px-4 py-3.5 text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 transition-colors resize-none text-sm"
                 />
               </div>
+              {error && (
+                <div className="flex items-center gap-2 text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-2xl px-4 py-3">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                  No se pudo enviar el mensaje. Escribime directo por{' '}
+                  <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline font-bold">
+                    WhatsApp
+                  </a>.
+                </div>
+              )}
               <button
                 type="submit"
                 disabled={loading}

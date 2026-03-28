@@ -1,5 +1,7 @@
 import { motion } from 'motion/react'
 
+const WA_NUMBER = import.meta.env.VITE_WA_NUMBER as string
+
 export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center pt-24 pb-32 px-6 relative overflow-hidden">
@@ -64,7 +66,7 @@ export default function Hero() {
           </svg>
         </a>
         <a
-          href="https://wa.me/5491176460917"
+          href={`https://wa.me/${WA_NUMBER}`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/8 text-on-surface border border-white/10 rounded-full font-bold text-sm tracking-wide uppercase hover:scale-105 hover:bg-white/12 transition-all duration-200"
